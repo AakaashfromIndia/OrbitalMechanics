@@ -278,8 +278,8 @@ def reset_simulation():
     params['M_central'] = slider_M.val
     params['r1'] = slider_r1.val
     params['r2'] = slider_r2.val
-    params['r3'] = slider_phase.val  # Using phase slider for R3
-    params['phase'] = 0.0  # Fixed phase for simplicity
+    params['r3'] = slider_phase.val
+    params['phase'] = 0.0
     
     if params['r2'] <= params['r1']:
         params['r2'] = params['r1'] + 1.0
@@ -479,16 +479,13 @@ def animate(frame):
         state = sol.y[:, -1]
         current_time += dt
         
-        # Handle burns at specific times
         current_r = np.sqrt(state[0]**2 + state[1]**2)
         current_v = np.sqrt(state[2]**2 + state[3]**2)
         
-        # Second burn at apoapsis (r3)
         if (simulation_mode == 'transfer1' and 
             abs(current_time - event_times['second_burn']) < 0.1 and
             abs(current_r - params['r3']) < 1.0):
             
-            # Apply second burn
             v3_transfer1 = np.sqrt(G * params['M_central'] * (2/params['r3'] - 1/a1_transfer))
             v3_transfer2 = np.sqrt(G * params['M_central'] * (2/params['r3'] - 1/a2_transfer))
             
@@ -499,12 +496,10 @@ def animate(frame):
             
             simulation_mode = 'transfer2'
         
-        # Third burn at final orbit
         elif (simulation_mode == 'transfer2' and 
               abs(current_time - event_times['third_burn']) < 0.1 and
               abs(current_r - params['r2']) < 1.0):
             
-            # Apply third burn for circularization
             v_circular = np.sqrt(G * params['M_central'] / params['r2'])
             if current_v > 0:
                 state[2] = state[2] / current_v * v_circular
