@@ -54,7 +54,7 @@ matplotlib
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/orbital-mechanics-simulations.git
+git clone https://github.com/AakaashfromIndia/OrbitalMechanics.git
 cd orbital-mechanics-simulations
 ```
 
