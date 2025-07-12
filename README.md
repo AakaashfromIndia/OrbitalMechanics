@@ -40,7 +40,8 @@ A detailed simulation of the classic Hohmann transfer orbit - the most fuel-effi
 
 An advanced simulation of the bielliptic transfer maneuver, which can be more fuel-efficient than Hohmann transfers for large orbit changes.
 
-![Bielliptic maneuver - Made with Clipchamp](https://github.com/user-attachments/assets/e2faf2a8-bec1-4b69-839b-3ceec05effdd)
+![Bielliptic maneuver - Made with Clipchamp](https://github.com/user-attachments/assets/9b480331-dbac-4377-b5e6-2436fe5ffd50)
+
 
 ## Libaries needed
 
